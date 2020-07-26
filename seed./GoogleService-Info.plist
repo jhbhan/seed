@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>936830904374-5p02sfd5a47kp8ikg7nlgajh3uo1pf2g.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.936830904374-5p02sfd5a47kp8ikg7nlgajh3uo1pf2g</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC_POOJHcCiS75smG1pER-HKB4FfRd4S-g</string>
+	<key>GCM_SENDER_ID</key>
+	<string>936830904374</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>ddevt.seed-</string>
+	<key>PROJECT_ID</key>
+	<string>seed-23cf9</string>
+	<key>STORAGE_BUCKET</key>
+	<string>seed-23cf9.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:936830904374:ios:c3c1b56dfffcb6590dd097</string>
+	<key>DATABASE_URL</key>
+	<string>https://seed-23cf9.firebaseio.com</string>
+</dict>
+</plist>

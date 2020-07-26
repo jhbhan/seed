@@ -20,7 +20,6 @@ pod 'GoogleSignIn'
 
 pod 'MessageKit'
 pod 'JGProgressHUD'#progress bar
-pod 'RealmSwift'#database for the device. cached data. improve performance. decrease times we hit firebase
 pod 'SDWebImage' #image loading capability. handles caching image
 
 

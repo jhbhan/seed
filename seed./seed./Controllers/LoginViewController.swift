@@ -13,9 +13,10 @@ import JGProgressHUD
 
 class LoginViewController: UIViewController {
 
-    
+    //loading button
     private let spinner = JGProgressHUD(style: .dark)
     
+    //using scroll view in case our veritcal dimensions are shifted
     private let scrollView:UIScrollView={
         let scrollView = UIScrollView()
         scrollView.clipsToBounds = true
@@ -74,16 +75,21 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //basic view UI
         title = "Log In"
         view.backgroundColor = .white
         
+        //adds the register button on the top right of the screen
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Register", style: .done, target: self, action: #selector(didTapRegister))
+        
+        //adds all the view elements to the view itself
         view.addSubview(scrollView)
         scrollView.addSubview(imageView)
         scrollView.addSubview(emailField)
         scrollView.addSubview(passwordField)
         scrollView.addSubview(loginButton)
         
-    }
+    }//EO viewDidLoad
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -107,17 +113,12 @@ class LoginViewController: UIViewController {
                                    width: scrollView.width-60,
                                    height: 52)
 
-    }
+    }//EO viewDidLayoutSubviews
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //when gister is tapped, change VC to RegisterViewController
+    @objc private func didTapRegister(){
+        let vc = RegisterViewController()
+        vc.title = "Create Account"
+        navigationController?.pushViewController(vc, animated: true)
     }
-    */
-
 }

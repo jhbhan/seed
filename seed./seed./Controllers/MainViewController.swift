@@ -15,16 +15,21 @@ class MainViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if FirebaseAuth.Auth.auth().currentUser == nil {
-            let vc = LoginViewController()
-            let nav = UINavigationController(rootViewController: vc)
-            nav.modalPresentationStyle = .fullScreen
-            present(nav, animated: false)
-        }
+        
+        
+        
+        //log in logic. check firebase auth if there is current user
+        //if not, go to login controller
+        //comment this block out to bypass it
+//        if FirebaseAuth.Auth.auth().currentUser == nil {
+//            let vc = LoginViewController()
+//            let nav = UINavigationController(rootViewController: vc)
+//            nav.modalPresentationStyle = .fullScreen
+//            present(nav, animated: false)
+//        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
         // Do any additional setup after loading the view.
         
     }

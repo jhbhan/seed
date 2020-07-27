@@ -1,0 +1,6 @@
+framework module Pods_seed__seed_UITests {
+  umbrella header "Pods-seed.-seed.UITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

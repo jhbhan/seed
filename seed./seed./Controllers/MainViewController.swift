@@ -21,12 +21,12 @@ class MainViewController: UIViewController {
         //log in logic. check firebase auth if there is current user
         //if not, go to login controller
         //comment this block out to bypass it
-//        if FirebaseAuth.Auth.auth().currentUser == nil {
-//            let vc = LoginViewController()
-//            let nav = UINavigationController(rootViewController: vc)
-//            nav.modalPresentationStyle = .fullScreen
-//            present(nav, animated: false)
-//        }
+        if FirebaseAuth.Auth.auth().currentUser == nil {
+            let vc = LoginViewController()
+            let nav = UINavigationController(rootViewController: vc)
+            nav.modalPresentationStyle = .fullScreen
+            present(nav, animated: false)
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()

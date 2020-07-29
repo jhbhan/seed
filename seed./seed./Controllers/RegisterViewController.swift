@@ -8,6 +8,7 @@
 
 import UIKit
 import JGProgressHUD
+import FirebaseAuth
 
 class RegisterViewController: UIViewController {
 
@@ -184,6 +185,13 @@ class RegisterViewController: UIViewController {
     }
     
     @objc private func registerButtonTapped(){
+        
+        firstNameField.resignFirstResponder()
+        lastNameField.resignFirstResponder()
+        emailField.resignFirstResponder()
+        passwordConfirmField.resignFirstResponder()
+        passwordField.resignFirstResponder()
+        
         guard let firstname = firstNameField.text,
         let lastname = lastNameField.text,
         let email = emailField.text,
@@ -200,8 +208,41 @@ class RegisterViewController: UIViewController {
             return
         }
         
-        //Firebase Log In
+        spinner.show(in: view)
         
+        //Firebase Create Account
+        
+        DatabaseManager.shared.userExists(with: email, completion: { [weak self] exists in
+            guard let strongSelf = self else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                strongSelf.spinner.dismiss()
+            }
+            
+            //if user already exists
+            guard !exists else {
+                strongSelf.alertUserRegisterError(message: "An account with this email already exists")
+                return
+            }
+            
+            //create Firebase user
+            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { authResult, error in
+                
+                guard authResult != nil, error == nil else{
+                    print("Error creating user")
+                    return
+                }
+                //if user was successsfully created, also insertUser into the database
+                DatabaseManager.shared.insertUser(with: ChatAppUser(firstName: firstname,
+                                                                    lastName: lastname,
+                                                                    emailAddress: email))
+                strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+                
+            })//Firebase createUser completion handler
+
+        })//userExists completion handler
         
     }
 

@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 import Firebase
 import FirebaseCore
+import FBSDKCoreKit
+import GoogleSignIn
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //INITIALIZE FIREBASE
         FirebaseApp.configure()
+        
         return true
     }
 

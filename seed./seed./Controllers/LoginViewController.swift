@@ -9,10 +9,9 @@
 import UIKit
 import FirebaseAuth
 import JGProgressHUD
+import FBSDKLoginKit
 
-
-class LoginViewController: UIViewController {
-    
+class LoginViewController: UIViewController { 
     //loading button
     private let spinner = JGProgressHUD(style: .dark)
     
@@ -72,6 +71,8 @@ class LoginViewController: UIViewController {
         return button
     }()
     
+    private let fbloginButton = FBLoginButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -83,13 +84,13 @@ class LoginViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Register", style: .done, target: self, action: #selector(didTapRegister))
         
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
-        
         //adds all the view elements to the view itself
         view.addSubview(scrollView)
         scrollView.addSubview(imageView)
         scrollView.addSubview(emailField)
         scrollView.addSubview(passwordField)
         scrollView.addSubview(loginButton)
+        scrollView.addSubview(fbloginButton)
         
     }//EO viewDidLoad
     
@@ -114,7 +115,10 @@ class LoginViewController: UIViewController {
                                    y: passwordField.bottom+10,
                                    width: scrollView.width-60,
                                    height: 52)
-
+        fbloginButton.frame = CGRect(x: 30,
+                                     y: loginButton.bottom+10,
+                                     width: scrollView.width-60,
+                                     height: 52)
     }//EO viewDidLayoutSubviews
     
     //when gister is tapped, change VC to RegisterViewController

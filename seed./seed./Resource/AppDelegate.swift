@@ -24,6 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //INITIALIZE FIREBASE
         FirebaseApp.configure()
         
+        //INITIALIZE FB
+        ApplicationDelegate.shared.application(
+            application,
+            didFinishLaunchingWithOptions: launchOptions
+        )
         return true
     }
 

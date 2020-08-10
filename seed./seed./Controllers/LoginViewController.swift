@@ -138,6 +138,29 @@ class LoginViewController: UIViewController {
                 return
         }
         
+        //Spinner show
+        
+        spinner.show(in:view)
+        FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password, completion: {[weak self] authResult, error in
+            guard let strongSelf = self else {
+                return
+            }
+            DispatchQueue.main.async {
+
+                strongSelf.spinner.dismiss()
+            }
+            
+            guard let result = authResult, error == nil else{
+                print("failed to log in user with email: \(email)")
+                return
+            }
+            
+            let user = result.user
+            print("Log In Successful: \(user)")
+            
+            strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+        })
+        
     }
     
     func alertUserLoginError(message: String){

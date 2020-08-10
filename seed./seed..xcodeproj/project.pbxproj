@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5815060E24DF1E6D00426C1C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5815060D24DF1E6D00426C1C /* SettingsViewController.swift */; };
 		581E7A1224CD35FC00B91DBE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581E7A1124CD35FC00B91DBE /* Extensions.swift */; };
 		5879FB6424CD2F0C00AFB87D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5879FB6324CD2F0C00AFB87D /* AppDelegate.swift */; };
 		5879FB6624CD2F0C00AFB87D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5879FB6524CD2F0C00AFB87D /* SceneDelegate.swift */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		0C60721AC1676F1EA9D3C4CE /* Pods_seed_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_seed_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		475A717897BE67DC81BCE6F0 /* Pods-seed.-seed.UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-seed.-seed.UITests.debug.xcconfig"; path = "Target Support Files/Pods-seed.-seed.UITests/Pods-seed.-seed.UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5815060D24DF1E6D00426C1C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		581E7A1124CD35FC00B91DBE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		582F2B17D59247A5F2D38EE6 /* Pods-seed.Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-seed.Tests.debug.xcconfig"; path = "Target Support Files/Pods-seed.Tests/Pods-seed.Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		5879FB6024CD2F0C00AFB87D /* seed..app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = seed..app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,6 +167,7 @@
 				58C4F24D24CD2FB30078FE3F /* RegisterViewController.swift */,
 				58C4F24F24CD2FB90078FE3F /* MainViewController.swift */,
 				5879FB6724CD2F0C00AFB87D /* ProfileViewController.swift */,
+				5815060D24DF1E6D00426C1C /* SettingsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				58C4F25024CD2FB90078FE3F /* MainViewController.swift in Sources */,
 				5879FB6824CD2F0C00AFB87D /* ProfileViewController.swift in Sources */,
 				5879FB6424CD2F0C00AFB87D /* AppDelegate.swift in Sources */,
+				5815060E24DF1E6D00426C1C /* SettingsViewController.swift in Sources */,
 				581E7A1224CD35FC00B91DBE /* Extensions.swift in Sources */,
 				5879FB6E24CD2F0C00AFB87D /* seed_.xcdatamodeld in Sources */,
 				58C4F24E24CD2FB30078FE3F /* RegisterViewController.swift in Sources */,

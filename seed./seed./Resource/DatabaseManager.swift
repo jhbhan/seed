@@ -44,6 +44,7 @@ extension DatabaseManager{
             )
     }
     
+    //for the survey
     public func surveyFinished(with email: String){
         //grab the user key
         guard let key = database.child("users").child(email).key else {
@@ -51,6 +52,35 @@ extension DatabaseManager{
         }
         let update = ["/users/\(key)": ["survey_done":true]]
         database.updateChildValues(update)
+    }
+}
+
+//post logic
+extension DatabaseManager{
+    public func getTopPosts(){
+        
+    }
+    
+    public func getNewPosts(){
+        
+    }
+    public func getFullPostData(with postid: String){
+        
+    }
+    public func addNewPost(with post: PostMetaData){
+        
+    }
+    public func addComment(with comment:CommentMetaData){
+        
+    }
+    public func deletePost(with postid:String){
+        
+    }
+    public func deleteComment(with postid:String, commentid:String){
+        
+    }
+    public func upvotePost(with postid:String){
+        
     }
 }
 
@@ -65,4 +95,19 @@ struct ChatAppUser{
         safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
         return safeEmail
     }
+}
+
+struct PostMetaData{
+    let author:String
+    let posttitle:String
+    let postbody:String
+    let numLikes:Int
+    let postid:String
+}
+
+struct CommentMetaData{
+    let postid:String
+    let author:String
+    let comment:String
+    let commentid:String
 }

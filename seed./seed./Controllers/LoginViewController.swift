@@ -71,6 +71,15 @@ class LoginViewController: UIViewController {
         return button
     }()
     
+    private let registerLabel:UILabel = {
+        let label = UILabel();
+        label.text = "Don't have an account? Sign up here"
+        let stringlink = NSAttributedString(string: "Sign up here!");
+        
+        label.textColor = UIColor.white
+        return label;
+    }()
+    
     private let fbloginButton = FBLoginButton()
     
     override func viewDidLoad() {

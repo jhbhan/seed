@@ -30,6 +30,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Feed" id="FdF-NI-Sqx"/>
+                    <connections>
+                        <outlet property="tableView" destination="4dA-r8-Db5" id="g24-rT-uVr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

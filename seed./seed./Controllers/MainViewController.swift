@@ -9,9 +9,16 @@
 import UIKit
 import FirebaseAuth
 
-
-class MainViewController: UIViewController {
-
+class MainViewController: UIViewController{
+    let dummydata = [PostMetaData(author: "John", posttitle: "hello", postbody: "no", numLikes: 1, postid: "12345"),
+                     PostMetaData(author: "Jay park", posttitle: "swag", postbody: "no", numLikes: 1,postid: "12345"),
+                     PostMetaData(author: "Somi", posttitle: "yolo", postbody: "no", numLikes: 5,postid: "12345"),
+                     PostMetaData(author: "momo", posttitle: "boooo", postbody: "no", numLikes: 9,postid: "12345"),
+                     PostMetaData(author: "naruto", posttitle: "asdf", postbody: "no", numLikes: 123,postid: "12345")
+    ]
+    
+    
+    @IBOutlet var tableView: UITableView!
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -30,19 +37,33 @@ class MainViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.delegate = self
+        tableView.dataSource = self
+        self.tableView.rowHeight = view.height/CGFloat(5)
         // Do any additional setup after loading the view.
         
     }
-    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension MainViewController:UITableViewDataSource,UITableViewDelegate{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dummydata.count
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        //cell.textLabel?.text = dummydata[indexPath.row].author
+        //cell.textLabel?.textAlignment = .center
+        //cell.accessoryType = .detailButton
+        return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        //get post ID
+        //get ALL of post metadata
+        //navigate to the new post
+    }
+    
 }

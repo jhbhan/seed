@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 
 class SettingsViewController: UIViewController {
-
+    
     @IBOutlet var tableView: UITableView!
     let settingsTitle = ["Log Out"]
     

@@ -53,10 +53,11 @@ extension MainViewController:UITableViewDataSource,UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        //cell.textLabel?.text = dummydata[indexPath.row].author
-        //cell.textLabel?.textAlignment = .center
-        //cell.accessoryType = .detailButton
+        let cell = tableView.dequeueReusableCell(withIdentifier: "feedCell", for: indexPath) as! FeedTableCells
+        cell.authorName.text = dummydata[indexPath.row].author
+        cell.postTitle.text = dummydata[indexPath.row].posttitle
+        cell.numUpVotes.text = "\(dummydata[indexPath.row].numLikes)"
+        cell.postid = dummydata[indexPath.row].postid
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

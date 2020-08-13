@@ -19,6 +19,7 @@
 		5879FB7E24CD2F0E00AFB87D /* seed_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5879FB7D24CD2F0E00AFB87D /* seed_Tests.swift */; };
 		5879FB8924CD2F0E00AFB87D /* seed_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5879FB8824CD2F0E00AFB87D /* seed_UITests.swift */; };
 		58947DC024CD3299008145EA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 58947DBF24CD3299008145EA /* GoogleService-Info.plist */; };
+		58B229FC24E4C8E6005E33FA /* FeedTableCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B229FB24E4C8E6005E33FA /* FeedTableCells.swift */; };
 		58BEE4C424D230180024F042 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BEE4C324D230180024F042 /* DatabaseManager.swift */; };
 		58C4F24C24CD2FAC0078FE3F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C4F24B24CD2FAC0078FE3F /* LoginViewController.swift */; };
 		58C4F24E24CD2FB30078FE3F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C4F24D24CD2FB30078FE3F /* RegisterViewController.swift */; };
@@ -67,6 +68,7 @@
 		5879FB8824CD2F0E00AFB87D /* seed_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = seed_UITests.swift; sourceTree = "<group>"; };
 		5879FB8A24CD2F0E00AFB87D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58947DBF24CD3299008145EA /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		58B229FB24E4C8E6005E33FA /* FeedTableCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableCells.swift; sourceTree = "<group>"; };
 		58BEE4C324D230180024F042 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		58C4F24B24CD2FAC0078FE3F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		58C4F24D24CD2FB30078FE3F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				581E7A1124CD35FC00B91DBE /* Extensions.swift */,
 				5879FB6524CD2F0C00AFB87D /* SceneDelegate.swift */,
 				58BEE4C324D230180024F042 /* DatabaseManager.swift */,
+				58B229FB24E4C8E6005E33FA /* FeedTableCells.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				581E7A1224CD35FC00B91DBE /* Extensions.swift in Sources */,
 				5879FB6E24CD2F0C00AFB87D /* seed_.xcdatamodeld in Sources */,
 				58C4F24E24CD2FB30078FE3F /* RegisterViewController.swift in Sources */,
+				58B229FC24E4C8E6005E33FA /* FeedTableCells.swift in Sources */,
 				58C4F24C24CD2FAC0078FE3F /* LoginViewController.swift in Sources */,
 				5879FB6624CD2F0C00AFB87D /* SceneDelegate.swift in Sources */,
 				58BEE4C424D230180024F042 /* DatabaseManager.swift in Sources */,

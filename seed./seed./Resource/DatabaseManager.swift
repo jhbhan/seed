@@ -37,11 +37,19 @@ extension DatabaseManager{
     }
     
     public func insertUser(with user: ChatAppUser){
-        database.child("users").child(user.safeEmail).setValue(
-            ["first_name":user.firstName,
-            "last_name":user.lastName,
-            "survey_done": false]
-            )
+        database.child("users").child(user.safeEmail).setValue(["first_name":user.firstName,
+                                                                "last_name":user.lastName,
+                                                                "survey_done": false])
+        {
+            //error handler
+            (error: Error?, ref:DatabaseReference) in
+            if let error = error {
+                print("error in making user: \(error)")
+            }
+            else{
+                print("user inserted in Firebase successfully")
+            }
+        }
     }
     
     //for the survey
@@ -57,30 +65,141 @@ extension DatabaseManager{
 
 //post logic
 extension DatabaseManager{
-    public func getTopPosts(){
+    private func getCurrentTime()->String{
+        let now = Date()
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
         
+        return formatter.string(from: now)
     }
     
-    public func getNewPosts(){
-        
+    public func getTopPosts()->[PostMetaData]{
+        let topposts = [PostMetaData]()
+        //FIX ME
+        return topposts
     }
-    public func getFullPostData(with postid: String){
-        
+    
+    public func getNewPosts()->[PostMetaData]{
+        let newposts = [PostMetaData]()
+        //FIX ME
+        return newposts
     }
-    public func addNewPost(with post: PostMetaData){
-        
+    public func getFullPostData(with postid: String, completion: @escaping((Bool)->Void))->PostMetaData{
+    
+        let post = PostMetaData(author: "", posttitle: "", postbody: "", numLikes: 0, postid: "")
+        //FIX ME
+        return post
     }
-    public func addComment(with comment:CommentMetaData){
-        
+    
+    public func editPost(postid: String, newContent: String, completion: @escaping((Bool)->Void)){
+        guard let key = database.child("posts").child(postid).key else {
+            completion(false)
+            return
+        }
+        let update = ["/posts/\(key)": ["content":newContent]]
+        database.updateChildValues(update)
+        {
+            //error handler
+            (error: Error?, ref:DatabaseReference) in
+            if let error = error {
+                print("error in updating post: \(error)")
+                completion(false)
+            }
+            else{
+                print("post updated successfully")
+                completion(true)
+            }
+        }
     }
-    public func deletePost(with postid:String){
-        
+    
+    public func addNewPost(post: PostMetaData, completion: @escaping((Bool)->Void)){
+        database.child("posts").child(post.postid).setValue(
+                ["author":post.author,
+                 "title":post.posttitle,
+                 "content": post.postbody,
+                 "creationstamp": getCurrentTime(),
+                 "upvotes":0,
+                 "active":true]
+                )
+                {
+                    //error handler
+                    (error: Error?, ref:DatabaseReference) in
+                    if let error = error {
+                        print("error in updating post: \(error)")
+                        completion(false)
+                    }
+                    else{
+                        print("post updated successfully")
+                        completion(true)
+                    }
+                }
     }
-    public func deleteComment(with postid:String, commentid:String){
-        
+    public func addComment(comment:CommentMetaData, completion: @escaping((Bool)->Void)){
+        database.child("comments").child(comment.postid).child(comment.commentid).setValue(
+                ["author":comment.author,
+                 "content": comment.comment,
+                 "creationstamp": getCurrentTime(),
+                    "active":true]
+                )
+                {
+                    //error handler
+                    (error: Error?, ref:DatabaseReference) in
+                    if let error = error {
+                        print("error in updating post: \(error)")
+                        completion(false)
+                    }
+                    else{
+                        print("post updated successfully")
+                        completion(true)
+                    }
+                }
+    }
+    public func deletePost(with postid:String, completion: @escaping((Bool)->Void)){
+        guard let key = database.child("posts").child(postid).key else {
+            print("could not load key of the post")
+            completion(false)
+            return
+        }
+        let update = ["/posts/\(key)": ["active":true]]
+        database.updateChildValues(update)
+        {
+            //error handler
+            (error: Error?, ref:DatabaseReference) in
+            if let error = error {
+                print("error in deactivating post: \(error)")
+                completion(false)
+            }
+            else{
+                print("post deactivated successfully")
+                completion(true)
+            }
+        }
+
+    }
+    public func deleteComment(with postid:String, commentid:String, completion : @escaping((Bool)->Void)){
+        guard let key = database.child("comments").child(postid).child(commentid).key else {
+            print("could not load key of the comment")
+            completion(false)
+            return
+        }
+        let update = ["/comment/\(postid)/\(key)": ["active":true]]
+        database.updateChildValues(update)
+        {
+            //error handler
+            (error: Error?, ref:DatabaseReference) in
+            if let error = error {
+                print("error in deactivating comment: \(error)")
+                completion(false)
+            }
+            else{
+                print("comment deactivated successfully")
+                completion(true)
+            }
+        }
     }
     public func upvotePost(with postid:String){
-        
+        //FIX ME
     }
 }
 
